@@ -1,0 +1,5 @@
+C:\Users\Jason\Dropbox\RemoteDesktop\MirrorDriver\bin\Debug\MirrorDriver.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\MirrorDriver\bin\Debug\MirrorDriver.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\MirrorDriver\obj\Debug\MirrorDriver.csprojResolveAssemblyReference.cache
+C:\Users\Jason\Dropbox\RemoteDesktop\MirrorDriver\obj\Debug\MirrorDriver.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\MirrorDriver\obj\Debug\MirrorDriver.pdb

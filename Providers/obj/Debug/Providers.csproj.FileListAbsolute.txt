@@ -1,0 +1,14 @@
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\Providers.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\Providers.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\Lidgren.Network.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\MirrorDriver.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\Model.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\Network.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\Nini.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\MirrorDriver.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\Model.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\Network.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\bin\Debug\Lidgren.Network.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\obj\Debug\Providers.csprojResolveAssemblyReference.cache
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\obj\Debug\Providers.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Providers\obj\Debug\Providers.pdb

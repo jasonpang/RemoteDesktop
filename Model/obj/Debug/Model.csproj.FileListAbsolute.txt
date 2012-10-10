@@ -1,0 +1,8 @@
+C:\Users\Jason\Dropbox\RemoteDesktop\Model\bin\Debug\Model.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Model\bin\Debug\Model.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Model\bin\Debug\Lidgren.Network.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Model\bin\Debug\Nini.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Model\bin\Debug\Lidgren.Network.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Model\obj\Debug\Model.csprojResolveAssemblyReference.cache
+C:\Users\Jason\Dropbox\RemoteDesktop\Model\obj\Debug\Model.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Model\obj\Debug\Model.pdb

@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{212C884F-28B5-42E7-98D7-5B449061A9A6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Providers</RootNamespace>
+    <AssemblyName>Providers</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lidgren.Network">
+      <HintPath>..\Packages\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="Nini">
+      <HintPath>..\Packages\Nini.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="LiveControl\Client\LiveControlProvider.cs" />
+    <Compile Include="LiveControl\Client\ScreenshotMessageEventArgs.cs" />
+    <Compile Include="LiveControl\DesktopChangedEventArgs.cs" />
+    <Compile Include="LiveControl\Server\LiveControlProvider.cs" />
+    <Compile Include="Nova\Client\IntroducerIntroductionCompletedEventArgs.cs" />
+    <Compile Include="Nova\Client\NovaProvider.cs" />
+    <Compile Include="Nova\Introducer\IntroductionCompletedEventArgs.cs" />
+    <Compile Include="Nova\Introducer\MachineBannedEventArgs.cs" />
+    <Compile Include="Nova\Introducer\MachineRegisteredEventArgs.cs" />
+    <Compile Include="Nova\Introducer\NovaProvider.cs" />
+    <Compile Include="Nova\Introducer\WrongPasswordEventArgs.cs" />
+    <Compile Include="Nova\Server\IntroducerRegistrationResponsedEventArgs.cs" />
+    <Compile Include="Nova\Server\NovaProvider.cs" />
+    <Compile Include="Nova\Server\PasswordGeneratedEventArgs.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MirrorDriver\MirrorDriver.csproj">
+      <Project>{18d98e23-bbfe-432b-861c-1a1dc4bd302b}</Project>
+      <Name>MirrorDriver</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{0d9cbf57-19a7-4007-8945-e5ee4584a6fb}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Network\Network.csproj">
+      <Project>{5bb29303-0df8-4d32-9117-a022c1b6fdb9}</Project>
+      <Name>Network</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

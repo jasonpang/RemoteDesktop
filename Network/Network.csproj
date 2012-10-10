@@ -1,0 +1,113 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5BB29303-0DF8-4D32-9117-A022C1B6FDB9}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Network</RootNamespace>
+    <AssemblyName>Network</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Lidgren.Network">
+      <HintPath>..\Packages\Lidgren.Network.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CompilerServices.AsyncTargetingPack.Net4">
+      <HintPath>..\packages\Microsoft.CompilerServices.AsyncTargetingPack.1.0.0\lib\net40\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cadenza\Collections\MutableLookup.cs" />
+    <Compile Include="ConnectedEventArgs.cs" />
+    <Compile Include="DebugMessageEventArgs.cs" />
+    <Compile Include="DisconnectedEventArgs.cs" />
+    <Compile Include="Extensions\NetOutgoingMessageExtensions.cs" />
+    <Compile Include="Extensions\NetPeerConfigurationExtensions.cs" />
+    <Compile Include="Extensions\StringExtensions.cs" />
+    <Compile Include="IAuthenticatable.cs" />
+    <Compile Include="Message.cs" />
+    <Compile Include="MessageEventArgs.cs" />
+    <Compile Include="MessageFactory.cs" />
+    <Compile Include="MessageHandler.cs" />
+    <Compile Include="Messages\LiveControl\CustomMessageType.cs" />
+    <Compile Include="Messages\LiveControl\KeyDownMessage.cs" />
+    <Compile Include="Messages\LiveControl\KeyPressMessage.cs" />
+    <Compile Include="Messages\LiveControl\KeyUpMessage.cs" />
+    <Compile Include="Messages\LiveControl\MouseClickMessage.cs" />
+    <Compile Include="Messages\LiveControl\MouseMoveMessage.cs" />
+    <Compile Include="Messages\LiveControl\MouseScrollMessage.cs" />
+    <Compile Include="Messages\LiveControl\RequestScreenshotMessage.cs" />
+    <Compile Include="Messages\LiveControl\ResponseBeginScreenshotMessage.cs" />
+    <Compile Include="Messages\LiveControl\ResponseEmptyScreenshotMessage.cs" />
+    <Compile Include="Messages\LiveControl\ResponseEndScreenshotMessage.cs" />
+    <Compile Include="Messages\LiveControl\ResponseScreenshotMessage.cs" />
+    <Compile Include="Messages\NovaMessage.cs" />
+    <Compile Include="Messages\Nova\CustomMessageType.cs" />
+    <Compile Include="Messages\Nova\KeepAliveMessage.cs" />
+    <Compile Include="Messages\Nova\RequestDisconnectMessage.cs" />
+    <Compile Include="Messages\Nova\RequestIntroducerIntroductionMessage.cs" />
+    <Compile Include="Messages\Nova\RequestIntroducerRegistrationMessage.cs" />
+    <Compile Include="Messages\Nova\ResponseDisconnectionAcknowledgedMessage.cs" />
+    <Compile Include="Messages\Nova\ResponseIntroducerIntroductionCompletedMessage.cs" />
+    <Compile Include="Messages\Nova\ResponseIntroducerRegistrationDeniedMessage.cs" />
+    <Compile Include="Messages\Nova\ResponseIntroducerRegistrationSucceededMessage.cs" />
+    <Compile Include="NatTraversedEventArgs.cs" />
+    <Compile Include="NetworkClient.cs" />
+    <Compile Include="NetworkPeer.cs" />
+    <Compile Include="NetworkServer.cs" />
+    <Compile Include="NetworkStatus.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Protocol.cs" />
+    <Compile Include="UnconnectedMessageEventArgs.cs" />
+    <Compile Include="UnconnectedSendMessageEventArgs.cs" />
+    <Compile Include="Utilities\ArrayUtil.cs" />
+    <Compile Include="Utilities\HashUtil.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Model\Model.csproj">
+      <Project>{0d9cbf57-19a7-4007-8945-e5ee4584a6fb}</Project>
+      <Name>Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

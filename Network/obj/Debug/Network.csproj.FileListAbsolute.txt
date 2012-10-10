@@ -1,0 +1,12 @@
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\bin\Debug\Network.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\bin\Debug\Network.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\bin\Debug\Lidgren.Network.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\bin\Debug\Microsoft.CompilerServices.AsyncTargetingPack.Net4.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\bin\Debug\Model.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\bin\Debug\Nini.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\bin\Debug\Model.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\bin\Debug\Lidgren.Network.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\bin\Debug\Microsoft.CompilerServices.AsyncTargetingPack.Net4.xml
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\obj\Debug\Network.csprojResolveAssemblyReference.cache
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\obj\Debug\Network.dll
+C:\Users\Jason\Dropbox\RemoteDesktop\Network\obj\Debug\Network.pdb
