@@ -48,6 +48,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Extensions\ByteExtensions.cs" />
+    <Compile Include="Extensions\IntExtensions.cs" />
     <Compile Include="LiveControl\Client\LiveControlProvider.cs" />
     <Compile Include="LiveControl\Client\ScreenshotMessageEventArgs.cs" />
     <Compile Include="LiveControl\DesktopChangedEventArgs.cs" />

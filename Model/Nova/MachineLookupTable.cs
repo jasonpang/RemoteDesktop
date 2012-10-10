@@ -36,7 +36,14 @@ namespace Model.Nova
 
         public LookupMachine GetMachineById(string key)
         {
-            return lookupTable[key];
+            try
+            {
+                return lookupTable[key];
+            }
+            catch (KeyNotFoundException ex)
+            {
+                return null;
+            }
         }
 
         public string GetIdByMachine(LookupMachine machine)

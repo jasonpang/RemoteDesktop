@@ -64,6 +64,7 @@
             this.KeyPreview = true;
             this.Name = "FormLiveControl";
             this.Text = "FormLiveControl";
+            this.TopMost = true;
             this.ResumeLayout(false);
 
         }

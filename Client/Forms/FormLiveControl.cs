@@ -19,6 +19,9 @@ namespace Client.Forms
 {
     public partial class FormLiveControl : Form
     {
+        private bool ShowRegionOutlines = true;
+        private Pen pen = new Pen(Color.Magenta, 2.0f);
+
         public LiveControlManager LiveControlManager { get { return NovaClient.Instance.LiveControlManager; } }
 
         public FormLiveControl()
@@ -35,6 +38,16 @@ namespace Client.Forms
             using (var stream = new MemoryStream(screenshot.Image))
             {
                 Image image = Image.FromStream(stream);
+
+                if (ShowRegionOutlines)
+                {
+                    var gfx = gdiScreen1.CreateGraphics();
+                    gfx.DrawLine(pen, new Point(e.Screenshot.Region.X, e.Screenshot.Region.Y), new Point(e.Screenshot.Region.X + e.Screenshot.Region.Width, e.Screenshot.Region.Y));
+                    gfx.DrawLine(pen, new Point(e.Screenshot.Region.X + e.Screenshot.Region.Width, e.Screenshot.Region.Y), new Point(e.Screenshot.Region.X + e.Screenshot.Region.Width, e.Screenshot.Region.Y + e.Screenshot.Region.Y));
+                    gfx.DrawLine(pen, new Point(e.Screenshot.Region.X + e.Screenshot.Region.Width, e.Screenshot.Region.Y + e.Screenshot.Region.Y), new Point(e.Screenshot.Region.X, e.Screenshot.Region.Y + e.Screenshot.Region.Y));
+                    gfx.DrawLine(pen, new Point(e.Screenshot.Region.X, e.Screenshot.Region.Y + e.Screenshot.Region.Y), new Point(e.Screenshot.Region.X, e.Screenshot.Region.Y));
+                    gfx.Dispose();
+                }
 
                 gdiScreen1.Draw(image, screenshot.Region);
             }

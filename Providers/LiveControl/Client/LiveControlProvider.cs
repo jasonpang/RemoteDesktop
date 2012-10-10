@@ -41,8 +41,7 @@ namespace Providers.LiveControl.Client
             uint num = e.Message.Number;
 
             // Slowly build our image bytes
-            // TODO: Change 1300 to MTU constant
-            Buffer.BlockCopy(e.Message.Image, 0, pendingScreenshots[num].Image, e.Message.SendIndex * Providers.LiveControl.Server.LiveControlProvider.mtu, e.Message.Image.Length);
+            Buffer.BlockCopy(e.Message.Image, 0, pendingScreenshots[num].Image, e.Message.SendIndex * Server.LiveControlProvider.mtu, e.Message.Image.Length);
         }
 
         private void OnResponseEndScreenshotMessageReceived(MessageEventArgs<ResponseEndScreenshotMessage> e)

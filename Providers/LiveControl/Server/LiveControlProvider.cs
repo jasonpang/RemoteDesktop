@@ -13,6 +13,7 @@ using MirrorDriver;
 using Model.LiveControl;
 using Network;
 using Network.Messages.LiveControl;
+using Providers.Extensions;
 using Point = System.Drawing.Point;
 using Model.Extensions;
 using Rectangle = System.Drawing.Rectangle;
@@ -30,7 +31,7 @@ namespace Providers.LiveControl.Server
 
         private Stopwatch Timer { get; set; }
         public uint ScreenshotCounter = 0;
-        public static int mtu = 1250;
+        public static int mtu = 250;
 
         public LiveControlProvider(NetworkPeer network)
             : base(network)
@@ -55,10 +56,7 @@ namespace Providers.LiveControl.Server
 
         public bool DoesMirrorDriverExist()
         {
-            var doesExist = MirrorDriver.Load();
-            MirrorDriver.Unload();
-
-            return doesExist;
+            return MirrorDriver.DriverExists();
         }
 
         /// <summary>
@@ -67,24 +65,28 @@ namespace Providers.LiveControl.Server
         /// <param name="e">The <see cref="Network.MessageEventArgs&lt;Network.Messages.LiveControl.RequestScreenshotMessage&gt;"/> instance containing the event data.</param>
         private void OnRequestScreenshotMessageReceived(MessageEventArgs<RequestScreenshotMessage> e)
         {
+            if (!DoesMirrorDriverExist())
+            {
+                var dialogResult =
+                    MessageBox.Show(
+                        "You either don't have the DemoForge mirror driver installed, or you haven't restarted your computer after the installation of the mirror driver. Without a mirror driver, this application will not work. The mirror driver is responsible for notifying the application of any changed screen regions and passing the application bitmaps of those changed screen regions. Press 'Yes' to directly download the driver (you'll still have to install it after). You can visit the homepage if you'd like too: http://www.demoforge.com/dfmirage.htm",
+                        "Mirror Driver Not Installed", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+
+                if (dialogResult == DialogResult.Yes)
+                {
+                    Process.Start("http://www.demoforge.com/tightvnc/dfmirage-setup-2.0.301.exe");
+                }
+
+                MessageBox.Show("The application will now exit.", "Missing Required Component", MessageBoxButtons.OK,
+                                MessageBoxIcon.Error);
+                Application.Exit();
+            }
+
             if (MirrorDriver.State != DesktopMirror.MirrorState.Running)
             {
                 // Most likely first time
                 // Start the mirror driver
-                var driverExists = MirrorDriver.Load();
-
-                if (!driverExists)
-                {
-                    var dialogResult = MessageBox.Show("You either don't have the DemoForge mirror driver installed, or you haven't restarted your computer after the installation of the mirror driver. Without a mirror driver, this application will not work. The mirror driver is responsible for notifying the application of any changed screen regions and passing the application bitmaps of those changed screen regions. Press 'Yes' to directly download the driver (you'll still have to install it after). You can visit the homepage if you'd like too: http://www.demoforge.com/dfmirage.htm", "Mirror Driver Not Installed", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
-
-                    if (dialogResult == DialogResult.Yes)
-                    {
-                        Process.Start("http://www.demoforge.com/tightvnc/dfmirage-setup-2.0.301.exe");
-                    }
-
-                    MessageBox.Show("The application will now exit.", "Missing Required Component", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Application.Exit();
-                }
+                MirrorDriver.Load();
 
                 MirrorDriver.Connect();
                 MirrorDriver.Start();
@@ -114,7 +116,17 @@ namespace Providers.LiveControl.Server
                 {
                     if (regions[i].IsEmpty) continue;
 
-                    Bitmap regionShot = screenshot.Clone(regions[i], PixelFormat.Format16bppRgb565);
+                    Bitmap regionShot = null;
+
+                    try
+                    {
+                        regionShot = screenshot.Clone(regions[i], PixelFormat.Format16bppRgb565);
+                    }
+                    catch (OutOfMemoryException ex)
+                    {
+                        Trace.WriteLine("OutOfMemoryException");
+                    }
+
                     var stream = new MemoryStream();
                     regionShot.Save(stream, ImageFormat.Png);
 
@@ -168,25 +180,19 @@ namespace Providers.LiveControl.Server
                 message.Image = regionFragmentBuffer;
                 message.SendIndex = (i <= 0) ? (0) : (i);
                 Network.SendMessage(message, NetDeliveryMethod.ReliableOrdered, 0);
-                Trace.WriteLine(String.Format("Sent screenshot #{0}, fragment #{1} of {2} ({3} KB).", ScreenshotCounter, i, numFragments, ((float)message.Image.Length / (float)1024)));
+                Trace.WriteLine(String.Format("Sent screenshot #{0}, fragment #{1} of {2} ({3} KB).", ScreenshotCounter, i, numFragments, message.Image.Length.ToKilobytes()));
             }
 
             Network.SendMessage(new ResponseEndScreenshotMessage() { Number = ScreenshotCounter });
-            Trace.WriteLine(String.Format("Completed send of screenshot #{0}, Size: {1} KB", ScreenshotCounter, GetKBFromBytes(bitmapBytes.Length)));
-        }
-
-
-        private static float GetKBFromBytes(long bytes)
-        {
-            return (float) ((float) bytes/(float) 1024);
+            Trace.WriteLine(String.Format("Completed send of screenshot #{0}, Size: {1} KB", ScreenshotCounter, bitmapBytes.Length.ToKilobytes()));
         }
 
         private static float GetTotalScreenshotsKB(List<Screenshot> screenshots)
         {
             float total = 0f;
-            screenshots.ForEach((x) =>
+            screenshots.ForEach(x =>
                                     {
-                                        total += GetKBFromBytes(x.Image.Length);
+                                        total += x.Image.Length.ToKilobytes();
                                     });
             return total;
         }
@@ -200,6 +206,7 @@ namespace Providers.LiveControl.Server
             var desktopChangesCopy = new List<Rectangle>(DesktopChanges);
             DesktopChanges.Clear();
             
+            /*
             desktopChangesCopy.ForEach((x) => desktopChangesCopy.ForEach((y) =>
                                                                              {
                                                                                  if (x != y && x.Contains(y))
@@ -207,6 +214,7 @@ namespace Providers.LiveControl.Server
                                                                                      desktopChangesCopy.Remove(y);
                                                                                  }
                                                                              }));
+             */
 
             return desktopChangesCopy;
         }

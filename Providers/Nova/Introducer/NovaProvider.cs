@@ -89,6 +89,13 @@ namespace Providers.Nova.Introducer
 
             // Client is not banned, so we check the password hash to make sure it matches the server's
             var retrievedServerMachine = MachineLookupTable.GetMachineById(e.Message.ServerMachine.NovaId);
+            
+            if (retrievedServerMachine == null)
+            {
+                // todo later
+                return;
+            }
+            
             string correctPasswordHash = retrievedServerMachine.Machine.PasswordHash;
 
             // Password hash doesn't match - client entered wrong password

@@ -123,7 +123,38 @@ namespace MirrorDriver
         private const string driverRegistryPath = "SYSTEM\\CurrentControlSet\\Hardware Profiles\\Current\\System\\CurrentControlSet\\Services";
         private RegistryKey _registryKey;
 
+        public bool DriverExists()
+        {
+            var device = new DisplayDevice();
+            var deviceMode = new DeviceMode {dmDriverExtra = 0};
 
+            device.CallBack = Marshal.SizeOf(device);
+            deviceMode.dmSize = (short) Marshal.SizeOf(deviceMode);
+            deviceMode.dmBitsPerPel = Screen.PrimaryScreen.BitsPerPixel;
+
+            if (deviceMode.dmBitsPerPel == 24)
+                deviceMode.dmBitsPerPel = 32;
+
+            _bitmapBpp = deviceMode.dmBitsPerPel;
+
+            deviceMode.dmDeviceName = string.Empty;
+            deviceMode.dmFields = (DM_BITSPERPEL | DM_PELSWIDTH | DM_PELSHEIGHT | DM_POSITION);
+            _bitmapHeight = deviceMode.dmPelsHeight = Screen.PrimaryScreen.Bounds.Height;
+            _bitmapWidth = deviceMode.dmPelsWidth = Screen.PrimaryScreen.Bounds.Width;
+
+            bool deviceFound;
+            uint deviceIndex = 0;
+
+            while (deviceFound = EnumDisplayDevices(null, deviceIndex, ref device, 0))
+            {
+                if (device.DeviceString == driverName)
+                    break;
+                deviceIndex++;
+            }
+
+            if (!deviceFound) return false;
+            else return true;
+        }
 
         public bool Load()
         {
