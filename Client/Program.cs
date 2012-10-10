@@ -19,6 +19,7 @@ namespace Client
                 Application.EnableVisualStyles();
                 Application.SetCompatibleTextRenderingDefault(false);
                 Application.Run(new FormConnect());
+                Application.Run(new FormLiveControl());
             }
             catch (Exception ex)
             {

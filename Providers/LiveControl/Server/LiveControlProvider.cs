@@ -206,7 +206,6 @@ namespace Providers.LiveControl.Server
             var desktopChangesCopy = new List<Rectangle>(DesktopChanges);
             DesktopChanges.Clear();
             
-            /*
             desktopChangesCopy.ForEach((x) => desktopChangesCopy.ForEach((y) =>
                                                                              {
                                                                                  if (x != y && x.Contains(y))
@@ -214,7 +213,6 @@ namespace Providers.LiveControl.Server
                                                                                      desktopChangesCopy.Remove(y);
                                                                                  }
                                                                              }));
-             */
 
             return desktopChangesCopy;
         }

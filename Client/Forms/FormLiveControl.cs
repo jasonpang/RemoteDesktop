@@ -19,7 +19,7 @@ namespace Client.Forms
 {
     public partial class FormLiveControl : Form
     {
-        private bool ShowRegionOutlines = true;
+        private bool ShowRegionOutlines = false;
         private Pen pen = new Pen(Color.Magenta, 2.0f);
 
         public LiveControlManager LiveControlManager { get { return NovaClient.Instance.LiveControlManager; } }
@@ -74,6 +74,7 @@ namespace Client.Forms
 
         private void ButtonRequestScreenshot_Click(object sender, EventArgs e)
         {
+            ButtonRequestScreenshot.Hide();
             LiveControlManager.RequestScreenshot();
         }
     }

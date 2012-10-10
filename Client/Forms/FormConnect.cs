@@ -37,7 +37,7 @@ namespace Client.Forms
         {
             ButtonConnect.Set(() => ButtonConnect.Text, "Connected.");
 
-            new FormLiveControl().Show();
+            this.Dispose();
         }
 
         private void ClientManager_OnIntroductionCompleted(object sender, IntroducerIntroductionCompletedEventArgs e)

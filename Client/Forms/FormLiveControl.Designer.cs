@@ -28,9 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.gdiScreen1 = new Controls.LiveControl.GdiScreen();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormLiveControl));
             this.ButtonRequestScreenshot = new System.Windows.Forms.Button();
+            this.gdiScreen1 = new Controls.LiveControl.GdiScreen();
             this.SuspendLayout();
+            // 
+            // ButtonRequestScreenshot
+            // 
+            this.ButtonRequestScreenshot.BackColor = System.Drawing.Color.Red;
+            this.ButtonRequestScreenshot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.ButtonRequestScreenshot.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ButtonRequestScreenshot.Location = new System.Drawing.Point(570, 340);
+            this.ButtonRequestScreenshot.Name = "ButtonRequestScreenshot";
+            this.ButtonRequestScreenshot.Size = new System.Drawing.Size(212, 40);
+            this.ButtonRequestScreenshot.TabIndex = 3;
+            this.ButtonRequestScreenshot.Text = "Click to Begin";
+            this.ButtonRequestScreenshot.UseVisualStyleBackColor = false;
+            this.ButtonRequestScreenshot.Click += new System.EventHandler(this.ButtonRequestScreenshot_Click);
             // 
             // gdiScreen1
             // 
@@ -42,16 +56,6 @@
             this.gdiScreen1.TabIndex = 2;
             this.gdiScreen1.Text = "gdiScreen1";
             // 
-            // ButtonRequestScreenshot
-            // 
-            this.ButtonRequestScreenshot.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.ButtonRequestScreenshot.Location = new System.Drawing.Point(1351, 0);
-            this.ButtonRequestScreenshot.Name = "ButtonRequestScreenshot";
-            this.ButtonRequestScreenshot.Size = new System.Drawing.Size(15, 15);
-            this.ButtonRequestScreenshot.TabIndex = 3;
-            this.ButtonRequestScreenshot.UseVisualStyleBackColor = true;
-            this.ButtonRequestScreenshot.Click += new System.EventHandler(this.ButtonRequestScreenshot_Click);
-            // 
             // FormLiveControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -61,9 +65,10 @@
             this.Controls.Add(this.gdiScreen1);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.KeyPreview = true;
             this.Name = "FormLiveControl";
-            this.Text = "FormLiveControl";
+            this.Text = "Remote Desktop Client";
             this.TopMost = true;
             this.ResumeLayout(false);
 

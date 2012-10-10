@@ -17,7 +17,6 @@ C:\Users\Jason\Dropbox\RemoteDesktop\Server\bin\Debug\Providers.pdb
 C:\Users\Jason\Dropbox\RemoteDesktop\Server\bin\Debug\Microsoft.CompilerServices.AsyncTargetingPack.Net4.xml
 C:\Users\Jason\Dropbox\RemoteDesktop\Server\bin\Debug\Lidgren.Network.pdb
 C:\Users\Jason\Dropbox\RemoteDesktop\Server\bin\Debug\MirrorDriver.pdb
-C:\Users\Jason\Dropbox\RemoteDesktop\Server\obj\Debug\Server.csprojResolveAssemblyReference.cache
 C:\Users\Jason\Dropbox\RemoteDesktop\Server\obj\Debug\Server.Forms.FormMain.resources
 C:\Users\Jason\Dropbox\RemoteDesktop\Server\obj\Debug\Server.csproj.GenerateResource.Cache
 C:\Users\Jason\Dropbox\RemoteDesktop\Server\obj\Debug\Server.exe

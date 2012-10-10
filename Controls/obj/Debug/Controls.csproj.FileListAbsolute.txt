@@ -1,5 +1,5 @@
 C:\Users\Jason\Dropbox\RemoteDesktop\Controls\bin\Debug\Controls.dll
 C:\Users\Jason\Dropbox\RemoteDesktop\Controls\bin\Debug\Controls.pdb
-C:\Users\Jason\Dropbox\RemoteDesktop\Controls\obj\Debug\Controls.csprojResolveAssemblyReference.cache
 C:\Users\Jason\Dropbox\RemoteDesktop\Controls\obj\Debug\Controls.dll
 C:\Users\Jason\Dropbox\RemoteDesktop\Controls\obj\Debug\Controls.pdb
+C:\Users\Jason\Dropbox\RemoteDesktop\Controls\obj\Debug\Controls.csprojResolveAssemblyReference.cache
