@@ -6,7 +6,7 @@ Tagline
 See your friend's screen and control his keyboard and mouse. `RemoteDesktop' brings the remote computer to you, with extra tools like a remote file manager, registry editor, and chat.
 
 
-Old (Sourceforge) Website
+Old Website
 ------------
 
 http://novarat.sourceforge.net/
@@ -19,11 +19,11 @@ Screenshots
 ![](http://novarat.sourceforge.net/screenies/Client.png)
 ![](http://novarat.sourceforge.net/screenies/RemoteDesktop.png)
 
-Tech Stack
+Technical Features & Libraries
 ----------
 
-* Front End
-  * [Pyramid web framework](http://www.pylonsproject.org/)
-        * Mako templates
-  * Hosted on Heroku
+* C#
+  * [Lidgren UDP networking library](https://code.google.com/p/lidgren-network-gen3/) for basic UDP functionality
+  * [Ermau's Tempest networking library](https://github.com/ermau/Tempest) (modified) for a more object-oriented architecture
+* [DFMirage mirror driver](http://www.demoforge.com/dfmirage.htm) for extremely fast screen capture
 
