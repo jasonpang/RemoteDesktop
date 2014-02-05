@@ -13,7 +13,11 @@ http://novarat.sourceforge.net/
 
 Screenshots
 ----------
-!(http://novarat.sourceforge.net/screenies/IntroducerMain.png)
+![](http://novarat.sourceforge.net/screenies/IntroducerMain.png)
+![](http://novarat.sourceforge.net/screenies/IntroducerLog.png)
+![](http://novarat.sourceforge.net/screenies/Server.png)
+![](http://novarat.sourceforge.net/screenies/Client.png)
+![](http://novarat.sourceforge.net/screenies/RemoteDesktop.png)
 
 Tech Stack
 ----------
