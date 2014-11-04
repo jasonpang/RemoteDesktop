@@ -1,6 +1,8 @@
 Remote Desktop, a PC Screen Sharing Software Prototype
 ========================================================
 
+**Note: ** I've been getting some emails about this project (never expected anyone to see this really) and it not working, so I'm going to try to fix it and document it better. Cheers! Hopefully shouldn't take too long. (November 4, 2014)
+
 Tagline
 -------
 See your friend's screen and control his keyboard and mouse. `RemoteDesktop' brings the remote computer to you, with extra tools like a remote file manager, registry editor, and chat.
