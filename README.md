@@ -3,7 +3,7 @@ Remote Desktop, a PC Screen Sharing Software Prototype
 
 **Note:** *I've been getting some emails about this project (never expected anyone to see this really) and it not working -- please see the documentation at [remote-desktop.readthedocs.org](http://remote-desktop.readthedocs.org/en/latest/). The project builds and runs successfully in its current state, though it might be a bit slow. (November 4, 2014)*
 
-**Note:** *This project is pretty old and bloated. I recently wrote a much much smaller and slimmer version demonstrating basic usage, which works on Windows 8/8.1, if you're interested in just the screen capture functionality. The project is [ScreenShare](https://github.com/jasonpang/screenshare). Important differences between Screenshare and RemoteDesktop: RemoteDesktop has UDP hole punching implemented; ScreenShare does not and only works locally. RemoteDesktop uses a mirror driver for screen capture; ScreenShare does not and uses the native Windows Desktop Duplication API available in Windows 8/8.1. (November 4, 2014)*
+**Note:** *This project is pretty old and bloated. I recently wrote a much much smaller and slimmer version demonstrating basic usage, which works on Windows 8/8.1, if you're interested in just the screen capture functionality. The project is [ScreenShare](https://github.com/jasonpang/screenshare). Important differences between Screenshare and RemoteDesktop: RemoteDesktop has UDP hole punching implemented; ScreenShare does not and only works locally. RemoteDesktop uses a mirror driver for screen capture; ScreenShare does not and uses the native Windows Desktop Duplication API available in Windows 8/8.1. (August 20, 2015)*
 
 Tagline
 -------
